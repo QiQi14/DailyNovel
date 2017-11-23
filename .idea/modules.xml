@@ -3,9 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/DailyNovel.iml" filepath="$PROJECT_DIR$/.idea/DailyNovel.iml" />
-      <module fileurl="file://E:\PROJECT_1\DailyNovel\DailyNovel\DailyNovel.iml" filepath="E:\PROJECT_1\DailyNovel\DailyNovel\DailyNovel.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://E:\PROJECT_1\DailyNovel\DailyNovel\app\app.iml" filepath="E:\PROJECT_1\DailyNovel\DailyNovel\app\app.iml" />
     </modules>
   </component>
 </project>

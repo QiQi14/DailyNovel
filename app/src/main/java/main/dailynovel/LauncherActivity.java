@@ -33,14 +33,14 @@ public class LauncherActivity extends AppCompatActivity {
         tvLogo.startAnimation(myanim);
         tvVersion.startAnimation(myanim);
 
-//        //    SET SPLASH_TIME_OUT
-//        new Handler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                Intent homeIntent = new Intent(LauncherActivity.this, LoginActivity.class);
-//                startActivity(homeIntent);
-//                finish();
-//            }
-//        },SPLASH_TIME_OUT);
+        //    SET SPLASH_TIME_OUT
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent homeIntent = new Intent(LauncherActivity.this, LoginActivity.class);
+                startActivity(homeIntent);
+                finish();
+            }
+        },SPLASH_TIME_OUT);
     }
 }
