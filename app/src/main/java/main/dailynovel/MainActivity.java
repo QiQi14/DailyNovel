@@ -13,6 +13,7 @@ import android.view.WindowManager;
 
 import main.dailynovel.Fragment.BookFragment;
 import main.dailynovel.Fragment.LibraryFragment;
+import main.dailynovel.Fragment.UserFragment;
 import main.dailynovel.Fragment.ViewPagerFragement;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,6 +27,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        // CODE OF FRAGMENT
+        bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomnavigation);
+        BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
 
 //        set Hide status bar
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -44,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.navigation_wall:
                         break;
                     case R.id.navigation_user:
+                        viewPager.setCurrentItem(2);
                         break;
                 }
                 return true;
@@ -64,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                 {
                     bottomNavigationView.getMenu().getItem(0).setChecked(false);
                 }
-                Log.d("page", "onPageSelected: "+position);
+                Log.d("page", "onPageSelected: " + position);
                 bottomNavigationView.getMenu().getItem(position).setChecked(true);
                 prevMenuItem = bottomNavigationView.getMenu().getItem(position);
 
@@ -83,8 +90,10 @@ public class MainActivity extends AppCompatActivity {
         ViewPagerFragement viewPagerFragement = new ViewPagerFragement(getSupportFragmentManager());
         LibraryFragment libraryFragment= new LibraryFragment();
         BookFragment bookFragment = new BookFragment();
+        UserFragment userFragment = new UserFragment();
         viewPagerFragement.addFragment(libraryFragment);
         viewPagerFragement.addFragment(bookFragment);
+        viewPagerFragement.addFragment(userFragment);
         viewPager.setAdapter(viewPagerFragement);
     }
 

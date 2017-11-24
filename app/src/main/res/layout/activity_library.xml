@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#dcd5d5"
+    android:background="#eaeaea"
     tools:context="main.dailynovel.Fragment.LibraryFragment">
 
     <android.support.v7.widget.Toolbar
@@ -33,7 +33,7 @@
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@id/toolbar2"
         tools:ignore="UselessLeaf">
 
@@ -59,8 +59,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:paddingBottom="15dp"
+                android:layout_centerHorizontal="true"
                 android:layout_below="@id/relayout2"
-                android:orientation="horizontal"
                 android:background="#FFFF"
                 tools:ignore="UselessLeaf">
 
@@ -69,11 +70,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
                     android:background="@android:color/transparent"
                     android:drawablePadding="5dp"
                     android:drawableTop="@drawable/ic_type"
-                    android:paddingBottom="15dp"
                     android:paddingTop="15dp"
                     android:text="Thể loại"
                     android:textAllCaps="false"
@@ -89,7 +88,6 @@
                     android:background="@android:color/transparent"
                     android:drawablePadding="5dp"
                     android:drawableTop="@drawable/ic_chart"
-                    android:paddingBottom="15dp"
                     android:paddingTop="15dp"
                     android:text="Xếp hạng"
                     android:textAllCaps="false"
@@ -105,7 +103,6 @@
                     android:background="@android:color/transparent"
                     android:drawablePadding="5dp"
                     android:drawableTop="@drawable/ic_filter"
-                    android:paddingBottom="15dp"
                     android:paddingTop="15dp"
                     android:text="Bộ lọc"
                     android:textAllCaps="false"
@@ -121,18 +118,87 @@
                     android:background="@android:color/transparent"
                     android:drawablePadding="5dp"
                     android:drawableTop="@drawable/ic_news"
-                    android:paddingBottom="15dp"
                     android:paddingTop="15dp"
                     android:text="Tin tức"
                     android:textAllCaps="false"
                     android:textColor="#000000"
                     android:textSize="12sp"
                     tools:ignore="HardcodedText" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relayout4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/relayout3"
+                android:layout_marginTop="10dp">
+
+                <RelativeLayout
+                    android:id="@+id/relayout5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:layout_marginBottom="10dp">
+
+                    <TextView
+                        android:id="@+id/txtNewUpdate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:fontFamily="@font/artifika"
+                        android:paddingBottom="15dp"
+                        android:paddingLeft="10dp"
+                        android:text="Truyện mới cập nhật"
+                        android:textAllCaps="true"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rvTruyenmoi"
+                        android:layout_below="@id/txtNewUpdate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"/>
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/relayout6"
+                    android:layout_below="@id/relayout5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:layout_marginBottom="10dp">
+
+                    <TextView
+                        android:id="@+id/txtMostView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:fontFamily="@font/artifika"
+                        android:paddingBottom="15dp"
+                        android:paddingLeft="10dp"
+                        android:text="Truyện xem nhiều"
+                        android:textAllCaps="true"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rvMostView"
+                        android:layout_marginTop="10dp"
+                        android:layout_below="@id/txtMostView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp">
+                    </android.support.v7.widget.RecyclerView>
+
+                </RelativeLayout>
+
             </RelativeLayout>
 
         </RelativeLayout>
 
     </ScrollView>
-
 
 </RelativeLayout>
