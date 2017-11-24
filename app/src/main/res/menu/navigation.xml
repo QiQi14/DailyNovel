@@ -16,6 +16,7 @@
 
     <item
         android:id="@+id/navigation_wall"
+        android:enabled="true"
         android:icon="@drawable/ic_wall"
         android:title="Tường"
         tools:ignore="HardcodedText" />

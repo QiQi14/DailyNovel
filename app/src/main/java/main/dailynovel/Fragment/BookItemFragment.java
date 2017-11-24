@@ -14,7 +14,7 @@ import main.dailynovel.R;
  */
 
 public class BookItemFragment extends Fragment {
-    String title = "";
+    String title = "aa";
     public BookItemFragment() {
         // Required empty public constructor
     }
@@ -28,9 +28,6 @@ public class BookItemFragment extends Fragment {
     }
 
     public String toString() {
-        if (getArguments() != null) {
-            title = getArguments().getString("title");
-        }
-        return "Loại " + title;
+        return title;
     }
 }

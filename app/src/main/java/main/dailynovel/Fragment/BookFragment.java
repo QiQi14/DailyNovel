@@ -34,21 +34,19 @@ public class BookFragment extends Fragment {
         tabLayout= (TabLayout) view.findViewById(R.id.tlBook);
 
         vpItem = new ViewPagerItem(getActivity().getSupportFragmentManager());
+        Bundle bundle = new Bundle();
         switch (page) {
             case 0:
                 BookItemFragment item1 = new BookItemFragment();
-                Bundle bundle1 = new Bundle();
-                bundle1.putString("title","1");
+//                bundle.putString("title","Đang theo dõi");
                 vpItem.addFragment(item1);
             case 1:
                 BookItemFragment item2 = new BookItemFragment();
-                Bundle bundle2 = new Bundle();
-                bundle2.putString("title","2");
+//                bundle.putString("title","Đã tải");
                 vpItem.addFragment(item2);
             case 2:
                 BookItemFragment item3 = new BookItemFragment();
-                Bundle bundle3 = new Bundle();
-                bundle3.putString("title","3");
+//                bundle.putString("title","Vừa xem");
                 vpItem.addFragment(item3);
         }
 

@@ -31,4 +31,10 @@ public class ViewPagerFragement extends FragmentPagerAdapter{
     public void removeFragment(Fragment fragment) {
         listFragment.remove(fragment);
     }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        String title=listFragment.get(position).toString();
+        return title.toString();
+    }
 }

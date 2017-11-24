@@ -34,4 +34,17 @@ public class ViewPagerItem extends FragmentStatePagerAdapter {
     public void removeFragment(Fragment fragment) {
         listFragment.remove(fragment);
     }
+
+    @Override
+    public CharSequence getPageTitle(int position){
+        switch (position){
+            case 0:
+                return "Đang theo dõi";
+            case 1:
+                return "Đã tải";
+            case 2:
+                return "Vừa xem";
+        }
+        return null;
+    }
 }
