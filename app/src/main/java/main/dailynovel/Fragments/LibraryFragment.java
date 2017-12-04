@@ -2,6 +2,7 @@ package main.dailynovel.Fragments;
 
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -19,7 +20,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
@@ -33,6 +33,7 @@ import main.dailynovel.MainActivity;
 import main.dailynovel.NovelActivity;
 import main.dailynovel.Objects.*;
 import main.dailynovel.R;
+import main.dailynovel.RSSActivity;
 import main.dailynovel.SearchActivity;
 import main.dailynovel.SlideViewPager;
 
@@ -92,6 +93,16 @@ public class LibraryFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        btnNews = (Button) view.findViewById(R.id.btnNews);
+        btnNews.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), RSSActivity.class);
+                startActivity(intent);
+            }
+        });
+
         //Slide Adapter
         vpSlide = view.findViewById(R.id.vpSlide);
         SlideViewPager adapter = new SlideViewPager(getActivity());
@@ -173,9 +184,11 @@ public class LibraryFragment extends Fragment {
             rvMostView.setAdapter(adapterVertical);
         }
 
+
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
+
         }
 
         @Override

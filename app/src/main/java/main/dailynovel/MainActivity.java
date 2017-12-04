@@ -1,15 +1,19 @@
 package main.dailynovel;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Handler;
 import android.os.StrictMode;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import main.dailynovel.Fragments.*;
 
@@ -17,19 +21,17 @@ public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
     MenuItem prevMenuItem;
     ViewPager vpContentMain;
-    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_righ);
 
         if (android.os.Build.VERSION.SDK_INT > 9) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
-
-        intent = getIntent();
 
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomnavigation);
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
@@ -40,16 +42,16 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.nav_library:
-                        vpContentMain.setCurrentItem(0, true);
+                        vpContentMain.setCurrentItem(0, false);
                         break;
                     case R.id.nav_bookcase:
-                        vpContentMain.setCurrentItem(1, true);
+                        vpContentMain.setCurrentItem(1, false);
                         break;
                     case R.id.nav_wall:
-                        vpContentMain.setCurrentItem(2, true);
+                        vpContentMain.setCurrentItem(2, false);
                         break;
                     case R.id.nav_user:
-                        vpContentMain.setCurrentItem(3, true);
+                        vpContentMain.setCurrentItem(3, false);
                         break;
                 }
                 return true;
@@ -86,6 +88,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         setUpFragment(vpContentMain);
+
+
     }
 
     public void setUpFragment(ViewPager vpContentMain) {
@@ -95,12 +99,6 @@ public class MainActivity extends AppCompatActivity {
         WallFragment wallFragment = new WallFragment();
         UserFragment userFragment = new UserFragment();
 
-        Bundle bundle = new Bundle();
-        bundle.putString("accountname", intent.getExtras().getString("accountname"));
-        bundle.putString("accountemail", intent.getExtras().getString("accountemail"));
-        bundle.putString("accountimg", intent.getExtras().getString("accountimg"));
-        userFragment.setArguments(bundle);
-
         mcViewPager.addFragment(libraryFragment);
         mcViewPager.addFragment(bookcaseFragment);
         mcViewPager.addFragment(wallFragment);
@@ -109,4 +107,25 @@ public class MainActivity extends AppCompatActivity {
         vpContentMain.setAdapter(mcViewPager);
         vpContentMain.setOffscreenPageLimit(3);
     }
+
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this).setIcon(R.mipmap.ic_warning).setTitle("Exit")
+                .setMessage("Are you sure?")
+                .setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        Intent intent = new Intent(Intent.ACTION_MAIN);
+                        intent.addCategory(Intent.CATEGORY_HOME);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//***Change Here***
+                        startActivity(intent);
+                        finish();
+                        System.exit(0);
+                    }
+                }).setNegativeButton("no", null).show();
+    }
+
 }
+

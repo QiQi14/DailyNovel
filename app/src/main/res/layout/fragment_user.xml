@@ -41,7 +41,7 @@
 
 
             <ImageView
-                android:id="@+id/imgAvatar"
+                android:id="@+id/imgAvata"
                 android:layout_marginLeft="10dp"
                 android:layout_centerVertical="true"
                 android:layout_width="100dp"
@@ -53,7 +53,7 @@
                 android:layout_marginTop="20dp"
                 android:id="@+id/txtUser"
                 android:layout_marginLeft="10dp"
-                android:layout_toEndOf="@id/imgAvatar"
+                android:layout_toEndOf="@id/imgAvata"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tên tài khoản"
@@ -63,7 +63,7 @@
 
             <TextView
                 android:id="@+id/txtId"
-                android:layout_toEndOf="@id/imgAvatar"
+                android:layout_toEndOf="@id/imgAvata"
                 android:layout_marginLeft="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

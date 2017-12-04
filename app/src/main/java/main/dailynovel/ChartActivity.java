@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +26,10 @@ public class ChartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chart);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+
+        //Hide status bar
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         vpChart = (ViewPager) findViewById(R.id.vpChart);
         tlChart= (TabLayout) findViewById(R.id.tlChart);
@@ -62,6 +67,12 @@ public class ChartActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_righ);
     }
 }
 

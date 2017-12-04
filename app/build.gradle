@@ -37,5 +37,7 @@ dependencies {
     compile 'com.facebook.android:facebook-login:[4,5)'
     compile 'com.twitter.sdk.android:twitter:3.1.1'
     compile 'com.twitter.sdk.android:twitter-core:3.1.1'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'org.jsoup:jsoup:1.10.3'
 }
 apply plugin: 'com.google.gms.google-services'

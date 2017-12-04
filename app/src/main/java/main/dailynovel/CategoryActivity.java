@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +25,10 @@ public class CategoryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+
+        //Hide status bar
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         vpCategory = (ViewPager) findViewById(R.id.vpCategory);
         tlCategory = (TabLayout) findViewById(R.id.tlCategory);
@@ -101,6 +106,12 @@ public class CategoryActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_righ);
     }
 }
 

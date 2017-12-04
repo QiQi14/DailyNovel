@@ -33,6 +33,7 @@ public class NovelActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_novel);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
         Intent intent = getIntent();
         novel = (Novel) intent.getSerializableExtra("Object");
@@ -85,6 +86,7 @@ public class NovelActivity extends AppCompatActivity {
                 intent.putExtra("itemID", novel.getNovelID());
                 intent.putExtra("itemChapter", novel.getNovelChapter());
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
 
@@ -110,5 +112,12 @@ public class NovelActivity extends AppCompatActivity {
                 }
             }
         });
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_righ);
     }
 }

@@ -84,7 +84,7 @@
                 android:id="@+id/txtApi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/txtDevelop"
+                android:layout_below="@id/relayout2"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="20dp"
                 android:text="API Licensed"
@@ -121,7 +121,7 @@
                 android:id="@+id/txt3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/txt2"
+                android:layout_below="@id/txtDevelop"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="20dp"
                 android:text="Project Manager"
@@ -199,7 +199,7 @@
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="20dp"
                             android:layout_weight="1"
-                            android:text="Layout Design"
+                            android:text="UI Design"
                             android:textColor="#000"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -213,7 +213,7 @@
                             android:layout_weight="1"
                             android:text="Hoang Xuan Huy"
                             android:textColor="#000"
-                            android:textSize="16sp" />
+                            android:textSize="14sp" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -290,7 +290,7 @@
                             android:layout_weight="1"
                             android:text="Thai Ngoc Hai"
                             android:textColor="#000"
-                            android:textSize="16sp" />
+                            android:textSize="14sp" />
                     </LinearLayout>
 
                 </LinearLayout>

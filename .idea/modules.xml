@@ -4,8 +4,10 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/DailyNovel.iml" filepath="$PROJECT_DIR$/.idea/DailyNovel.iml" />
       <module fileurl="file://D:\PROJ1\DailyNovel\.idea\DailyNovel.iml" filepath="D:\PROJ1\DailyNovel\.idea\DailyNovel.iml" />
+      <module fileurl="file://E:\PROJECT_1\DoubleNine\Concucuongcung\DailyNovel\.idea\DailyNovel.iml" filepath="E:\PROJECT_1\DoubleNine\Concucuongcung\DailyNovel\.idea\DailyNovel.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://D:\PROJ1\DailyNovel\app\app.iml" filepath="D:\PROJ1\DailyNovel\app\app.iml" />
+      <module fileurl="file://E:\PROJECT_1\DoubleNine\Concucuongcung\DailyNovel\app\app.iml" filepath="E:\PROJECT_1\DoubleNine\Concucuongcung\DailyNovel\app\app.iml" />
     </modules>
   </component>
 </project>
