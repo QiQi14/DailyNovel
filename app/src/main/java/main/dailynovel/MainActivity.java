@@ -1,62 +1,65 @@
 package main.dailynovel;
 
-import android.os.Bundle;
+import android.content.Intent;
+import android.os.StrictMode;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
 
-import main.dailynovel.Fragment.BookFragment;
-import main.dailynovel.Fragment.LibraryFragment;
-import main.dailynovel.Fragment.UserFragment;
-import main.dailynovel.Fragment.ViewPagerFragement;
+import main.dailynovel.Fragments.*;
 
 public class MainActivity extends AppCompatActivity {
-    ViewGroup viewGroup;
-    View view;
-    ViewPager viewPager;
     BottomNavigationView bottomNavigationView;
     MenuItem prevMenuItem;
+    ViewPager vpContentMain;
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        if (android.os.Build.VERSION.SDK_INT > 9) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
 
-        // CODE OF FRAGMENT
+        intent = getIntent();
+
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomnavigation);
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
-
-//        set Hide status bar
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        viewPager = (ViewPager)findViewById(R.id.content);
+        //Nav listener
         bottomNavigationView = (BottomNavigationView)findViewById(R.id.bottomnavigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
-                    case R.id.navigation_library:
-                        viewPager.setCurrentItem(0);
+                    case R.id.nav_library:
+                        vpContentMain.setCurrentItem(0, true);
                         break;
-                    case R.id.navigation_book:
-                        viewPager.setCurrentItem(1);
+                    case R.id.nav_bookcase:
+                        vpContentMain.setCurrentItem(1, true);
                         break;
-                    case R.id.navigation_wall:
+                    case R.id.nav_wall:
+                        vpContentMain.setCurrentItem(2, true);
                         break;
-                    case R.id.navigation_user:
-                        viewPager.setCurrentItem(2);
+                    case R.id.nav_user:
+                        vpContentMain.setCurrentItem(3, true);
                         break;
                 }
                 return true;
             }
         });
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        //Hide status bar
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        vpContentMain = (ViewPager) findViewById(R.id.content);
+        vpContentMain.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
@@ -67,8 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 if (prevMenuItem != null) {
                     prevMenuItem.setChecked(false);
                 }
-                else
-                {
+                else {
                     bottomNavigationView.getMenu().getItem(0).setChecked(false);
                 }
                 Log.d("page", "onPageSelected: " + position);
@@ -83,18 +85,28 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        setUpViewPagerFragment(viewPager);
+        setUpFragment(vpContentMain);
     }
 
-    public void setUpViewPagerFragment(ViewPager viewPager){
-        ViewPagerFragement viewPagerFragement = new ViewPagerFragement(getSupportFragmentManager());
-        LibraryFragment libraryFragment= new LibraryFragment();
-        BookFragment bookFragment = new BookFragment();
+    public void setUpFragment(ViewPager vpContentMain) {
+        MainContentViewPager mcViewPager = new MainContentViewPager(getSupportFragmentManager());
+        LibraryFragment libraryFragment = new LibraryFragment();
+        BookcaseFragment bookcaseFragment = new BookcaseFragment();
+        WallFragment wallFragment = new WallFragment();
         UserFragment userFragment = new UserFragment();
-        viewPagerFragement.addFragment(libraryFragment);
-        viewPagerFragement.addFragment(bookFragment);
-        viewPagerFragement.addFragment(userFragment);
-        viewPager.setAdapter(viewPagerFragement);
-    }
 
+        Bundle bundle = new Bundle();
+        bundle.putString("accountname", intent.getExtras().getString("accountname"));
+        bundle.putString("accountemail", intent.getExtras().getString("accountemail"));
+        bundle.putString("accountimg", intent.getExtras().getString("accountimg"));
+        userFragment.setArguments(bundle);
+
+        mcViewPager.addFragment(libraryFragment);
+        mcViewPager.addFragment(bookcaseFragment);
+        mcViewPager.addFragment(wallFragment);
+        mcViewPager.addFragment(userFragment);
+
+        vpContentMain.setAdapter(mcViewPager);
+        vpContentMain.setOffscreenPageLimit(3);
+    }
 }

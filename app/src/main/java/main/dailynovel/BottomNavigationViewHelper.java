@@ -1,9 +1,5 @@
 package main.dailynovel;
 
-/**
- * Created by l3umb on 11/20/2017.
- */
-
 import android.annotation.SuppressLint;
 import android.support.design.internal.BottomNavigationItemView;
 import android.support.design.internal.BottomNavigationMenuView;

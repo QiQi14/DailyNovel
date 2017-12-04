@@ -3,28 +3,28 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_library"
-        android:icon="@drawable/ic_library"
+        android:id="@+id/nav_library"
+        android:icon="@drawable/nav_ic_library"
         android:title="Thư viện"
         tools:ignore="HardcodedText" />
 
     <item
-        android:id="@+id/navigation_book"
-        android:icon="@drawable/ic_book"
+        android:id="@+id/nav_bookcase"
+        android:icon="@drawable/nav_ic_book"
         android:title="Tủ sách"
         tools:ignore="HardcodedText" />
 
     <item
-        android:id="@+id/navigation_wall"
+        android:id="@+id/nav_wall"
         android:enabled="true"
-        android:icon="@drawable/ic_wall"
+        android:icon="@drawable/nav_ic_wall"
         android:title="Tường"
         tools:ignore="HardcodedText" />
 
     <item
-        android:id="@+id/navigation_user"
-        android:icon="@drawable/ic_profile"
-        android:title="User"
+        android:id="@+id/nav_user"
+        android:icon="@drawable/nav_ic_profile"
+        android:title="Tài khoản"
         tools:ignore="HardcodedText" />
 
 </menu>

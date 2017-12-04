@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:background="@drawable/bg_launcher">
+    tools:context="main.dailynovel.LauncherActivity"
+    android:background="#2e2856">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -17,7 +17,7 @@
             android:id="@+id/iviewLogo"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            app:srcCompat="@drawable/ic_appicon_launcher"
+            app:srcCompat="@drawable/ic_appicon96"
             tools:ignore="ContentDescription"/>
 
         <TextView
@@ -44,7 +44,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="10dp"
+        android:textColor="#ffffff"
         android:text="Version 1.0.0"
         tools:ignore="HardcodedText" />
-
 </RelativeLayout>

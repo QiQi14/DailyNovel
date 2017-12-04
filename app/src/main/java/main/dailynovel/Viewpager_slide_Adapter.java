@@ -39,7 +39,7 @@ public class Viewpager_slide_Adapter extends PagerAdapter {
 
         layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.custom_layout_slider,null);
-        ImageView imageView = view.findViewById(R.id.imageView);
+        ImageView imageView = view.findViewById(R.id.imgCarousel);
         imageView.setImageResource(images[position]);
         ViewPager vp = (ViewPager)container;
         vp.addView(view,0);
